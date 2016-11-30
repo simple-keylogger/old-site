@@ -2,51 +2,43 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>A simple keylogger by GiacomoLaw</title>
+    <title>Keylogger-website by simple-keylogger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel='shortcut icon' href='favicon.ico'>
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">A Simple Keylogger</h1>
-      <h2 class="project-tagline">A simple keylogger for Windows, Linux and Mac</h2>
-      <a href="https://github.com/GiacomoLaw/Keylogger" class="btn">View on GitHub</a>
-      <a href="https://github.com/GiacomoLaw/Keylogger/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/GiacomoLaw/Keylogger/tarball/master" class="btn">Download .tar.gz</a>
+      <h1 class="project-name">Keylogger-website</h1>
+      <h2 class="project-tagline">Website for the keylogger repo</h2>
     </section>
 
     <section class="main-content">
-      <h2>
-<a id="keylogger-for-windows-and-mac" class="anchor" href="#keylogger-for-windows-and-mac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Keylogger for Windows, Linux and Mac</h2>
- 
+      <h3>
+<a id="keylogger-for-windows-linux-and-mac" class="anchor" href="#keylogger-for-windows-linux-and-mac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Keylogger for Windows, Linux and Mac</h3>
+
 <p>Read below for installation instructions.</p>
 
-<h3>
-<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h3>
+<h4>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h4>
 
 <p>Simply compile into an .exe, and then run. </p>
 
 <p>There are two files; klog_visible and klog_invisible. It is pretty simple, but I will expand:</p>
 
-<p>
-  <ul>
-    <li><code>klog_visible</code> is visible, and the window does not close when typing. Great for testing it out.</li>
-    <li><code>klog_invisible</code> makes the window of the logger disappear, and it also starts up hidden from view. Note that it is still visible in the task manager.</li>
-   </ul>
+<p><code>klog_visible</code> is visible, and the window does not close when typing. Great for testing it out. <code>klog_invisible</code> makes the window of the logger disappear, and it also starts up hidden from view. Note that it is still visible in the task manager.</p>
 
 <p>Both of these save the keystrokes to a .txt file when closed.</p>
 
-<h3>
-<a id="mac" class="anchor" href="#mac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac</h3>
+<h4>
+<a id="mac" class="anchor" href="#mac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac</h4>
 
 <p>This is a little more complicated, as its Apple after all! Please note, it does not work for secure areas such as password inputs. I have not found a work around yet.</p>
 
-<h4>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h4>
+<h5>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h5>
 
 <p>Download the repo. It will install in <code>/usr/local/bin/keylogger</code>.</p>
 
@@ -66,26 +58,56 @@ Logging to: /var/log/keystroke.log</code></p>
 
 <p>That will run it on startup.</p>
 
-<h4>
-<a id="uninstall" class="anchor" href="#uninstall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uninstall</h4>
+<h5>
+<a id="uninstall" class="anchor" href="#uninstall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uninstall</h5>
 
 <p><code>$ sudo make uninstall</code>
 Will uninstall the program, but not the logs.</p>
 
+<h4>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h4>
+
+<h5>
+<a id="installation-1" class="anchor" href="#installation-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h5>
+
+<p>You'll need to install python-xlib if you don't have it.</p>
+
+<p><code>sudo apt-get install python-xlib</code></p>
+
+<p>Check that you have git installed, and then run this.</p>
+
+<p><code>git clone https://github.com/GiacomoLaw/Keylogger</code></p>
+
+<p>This will clone this entire repo. Find the linux folder, extract it, and open it. Rename the extracted folder to <code>linux-logger</code> Then run this:</p>
+
+<p><code>giacomo@vostro:~$ cd linux-logger/</code></p>
+
+<p>Set where you want the log to go <strong>before</strong> running this step.</p>
+
+<p><code>giacomo@vostro:~/linux-logger$ python keylogger.py
+&lt;class 'Xlib.protocol.request.QueryExtension'&gt;
+&lt;class 'Xlib.protocol.request.QueryExtension'&gt;
+RECORD extension version 1.13</code></p>
+
+<p>The keylogger is now running! It will log your strokes to the file you specified. Stop it by hitting the grave key. Thats the one under escape on a standard keyboard.</p>
+
+<p>You can make it run on startup:</p>
+
+<p><code>python /home/giacomo/py-keylogger/keylogger.py</code></p>
+
 <hr>
 
-<h2>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h2>
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
 <p><a href="https://github.com/GiacomoLaw" class="user-mention">@GiacomoLaw</a>. Please note that the contributors are not responsible for any results of the use of this program.</p>
 
-<h2>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h2>
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the <a href="https://github.com/GiacomoLaw/Keylogger">repo on Github</a> to submit an issue, or even fork it and fix it. You can also email me <a href="mailto:thenerdystudent@gmail.com">here</a>.</p>
+<p>Having trouble with Pages? Check out the [repo](<a href="https://github.com/GiacomoLaw/Keylogger">https://github.com/GiacomoLaw/Keylogger</a>] to submit an issue, or even fork it and fix it. You can also email me <a href="mailto:thenerdystudent@gmail.com">here</a>.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/GiacomoLaw/keylogger-website">Keylogger-website</a> is maintained by <a href="https://github.com/GiacomoLaw">GiacomoLaw</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
