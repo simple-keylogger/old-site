@@ -47,6 +47,7 @@ This will uninstall the program, but not the logs.
 
 ### Linux
 #### Installation
+
 You'll need to install python-xlib if you don't have it.
 
 You can install it using `pip`:
